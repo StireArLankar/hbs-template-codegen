@@ -1,0 +1,24 @@
+{
+  "name": "hbs-template-codegen",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "codegen": "hbs -H ./src/template_helpers/index.js -D src/data.json -o src/codegen -e ext src/templates/**/*.hbs",
+    "codegen:1": "hbs -H ./src/template_helpers/times.js -H ./src/template_helpers/br.js -H ./src/template_helpers/eq.js -D src/data.json -o src/codegen -e ext src/templates/**/*.hbs",
+    "postcodegen": "yarn rename && yarn pretty",
+    "rename": "renamer --force --find \".ext\" --replace \"\" \"!(node_modules)/**\"",
+    "pretty": "prettier --write ./src/codegen",
+    "site": "hbs --data ./package.json --data ./src/data.json ./src/homepage.hbs --output ./site/"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "handlebars-helper-br": "^0.1.0",
+    "hbs-cli": "^1.4.0",
+    "renamer": "^2.0.1"
+  },
+  "devDependencies": {
+    "prettier": "^2.2.1"
+  }
+}

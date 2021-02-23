@@ -1,0 +1,15 @@
+export const array = [
+{{#each object}}
+{{#if (eq @key "firstKey")}}
+{{else}}
+    "{{@key}}",
+{{/if}}
+{{/each}}
+] as const
+
+const template: string = `
+  {{br 2}}
+  {{#times 10}}
+  <span>{{this}}</span>
+  {{/times}}
+`

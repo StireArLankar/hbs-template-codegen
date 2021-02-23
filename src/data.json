@@ -1,0 +1,9 @@
+{
+  "title": "Some Title",
+  "body": "This is the body",
+  "name": "test-name",
+  "object": {
+    "firstKey": "123",
+    "secondKey": "2123"
+  }
+}
